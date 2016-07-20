@@ -10,7 +10,10 @@ import XCTest
 @testable import FoodTracker2
 
 class FoodTracker2Tests: XCTestCase {
-    
+
+    //Default template tests
+    /*
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,5 +35,27 @@ class FoodTracker2Tests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    */
+    
+    // MARK: Foodtracker Tests
+    
+    //Tests to confirm Meal Init returns nil for no name and neg rating cases
+    func testMealInit(){
+        
+        //Success Case
+        let potentialItem = Meal(name: "Newest Meal", photo: nil, rating: 5)
+        XCTAssertNotNil(potentialItem)
+        
+        //Fail cases
+        let noName = Meal(name: "", photo: nil, rating: 2)
+        XCTAssertNil(noName, "Empty name is invalid")
+    
+        let negRating = Meal(name: "McDonalds Apple Slices", photo: nil, rating: -5)
+        XCTAssertNil(negRating, "Negative Ratings are bad, be positive")
+        
+        
+        
+    }
+    
     
 }
